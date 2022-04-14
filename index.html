@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Stocks</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<style>
+	.price{color: #006400;}
+	.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;}
+	.h1 {
+  font-family: Copperplate, Papyrus, fantasy;
+   }
+   .b {
+  font: italic bold 24px/30px Georgia, serif;
+}
+</style>
+</head>
+
+
+<body>
+	<!--header starts-->
+
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<h3 class="h1">Trading Platform</h3>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="center">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<button style="margin: 10px;" type="button" class="btn btn-outline-success my-2 my-sm-0" onclick="myFunction1()">Home</button>
+			</li>
+			<li class="nav-item active">
+				<button style="margin: 10px;" type="button" class="btn btn-outline-success my-2 my-sm-0" onclick="myFunction2()">About</button>
+			</li>
+			<li class="nav-item active">
+				<button style="margin: 10px;" type="button" class="btn btn-outline-success my-2 my-sm-0" onclick="myFunction3()">Service</button>
+			</li>
+			<li class="nav-item active">
+				<button style="margin: 13px;" type="button" class="btn btn-outline-success my-2 my-sm-0" onclick="myFunction4()">Plan</button>
+			</li>
+			<li class="nav-item active">
+				<button style="margin: 13px;" type="button" class="btn btn-outline-success my-2 my-sm-0" onclick="myFunction5()">Contact Us</button>
+			</li>
+			</ul>
+		</div>
+	    </div>
+
+
+
+			<!--<li class="nav-item">
+			  <a class="nav-link" onclick="myFunction2()" href="#">Link</a>
+			  
+			</li>
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Dropdown
+			  </a>
+			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="#">Action</a>
+				<a class="dropdown-item" href="#">Another action</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#">Something else here</a>
+			  </div>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link disabled" href="#">Disabled</a>
+			</li>
+		  
+		  <form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		  </form>-->
+		
+	  </nav>
+	  <!--header ends-->
+	
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<div class="container">
+							<div class="row">
+								<div class="span10">
+									<h3 class="b" style="color:#FFFFFF">Watch List:</h3>
+									<br>
+					
+									<table id="myPortfolio" style="float: rleft;">
+											<thead>
+													<tr class="table100-head">
+														<th class="column1">Company</th>
+														<th class="column2">Ticker</th>
+														<th class="column3" >Price</th>
+														<th class="column4">Shares</th>
+														<th class="column5">Buy</th>
+														<th class="column6">Sell</th>
+													</tr>
+												</thead>
+										<tbody>
+										</tbody>
+					
+									</table>
+					
+								</div>
+							</div>
+							<br>
+							<br>
+							<h3 class="b" style="color:#FFFFFF">Position:</h3>
+							<br>
+							
+						<table>
+							<tr>
+							  <th>Description</th>
+							  <th>Value</th>
+							</tr>
+							
+							<tr>
+							  <td>Cash Flow: </td>
+							  <td> <span id="cashflow">10000</td>
+							</tr>
+							<tr>
+							  <td>Portfolio Value:</td>
+							  <td> <span id="portfolio">0</span></td>
+							</tr>
+							<tr>
+								<td>Portfolio + Cash Flow:</td>
+								<td> <span id="netWorth">10000</span></td>
+							</tr>
+						  </table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	
+	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/stocks.js"></script>
+	<script>
+		function myFunction1() {
+		  location.replace("http://localhost/TradingPlatform/home.html")
+		}
+	</script>
+	<script>
+		function myFunction2() {
+		  location.replace("http://localhost/TradingPlatform/about.html")
+		}
+	</script>
+	<script>
+		function myFunction3() {
+		  location.replace("http://localhost/TradingPlatform/service.html")
+		}
+	</script>
+	<script>
+		function myFunction4() {
+		  location.replace("http://localhost/TradingPlatform/plan.html")
+		}
+	</script>
+	<script>
+		function myFunction5() {
+		  location.replace("http://localhost/TradingPlatform/contact.html")
+		}
+	</script>
+	
+
+
+
+	<footer id="footer" class="bg-primary text-white d-flex-column text-center">
+  <hr class="mt-0">
+  <!--Social buttons-->
+  <div class="text-center">
+    <h4>You can find us at</h4>
+    <ul class="list-unstyled list-inline">
+      <li class="list-inline-item">
+        <a href="#!" class="sbtn btn-large mx-1" title="Facebook">
+          <i class="fab fa-facebook-square fa-2x"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="#!" class="sbtn btn-large mx-1" title="Linkedin">
+          <i class="fab fa-linkedin fa-2x"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="#!" class="sbtn btn-large mx-1" title="Twitter">
+          <i class="fab fa-twitter-square fa-2x"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="#!" class="sbtn btn-large mx-1" title="Youtube">
+          <i class="fab fa-youtube-square fa-2x"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!--/.Social buttons-->
+  <hr class="mb-0">
+  <!--Footer Links-->
+  <div class="container text-left text-md-center">
+    <div class="row">
+      <!--First column-->
+      <div class="col-md-3 mx-auto shfooter">
+        <h5 class="my-2 font-weight-bold d-none d-md-block">Product</h5>
+        <div class="d-md-none title" data-target="#Product" data-toggle="collapse">
+          <div class="mt-3 font-weight-bold">Product
+            <div class="float-right navbar-toggler">
+              <i class="fas fa-angle-down"></i>
+              <i class="fas fa-angle-up"></i>
+            </div>
+          </div>
+        </div>
+        <ul class="list-unstyled collapse" id="Product">
+          <li><a href="#">Trading Magazine</a></li>
+          <li><a href="#">Secure API</a></li>
+          <li><a href="#">Learn to Trade</a></li>
+          <li><a href="#">Online Trading Course</a></li>
+        </ul>
+      </div>
+      <!--/.First column-->
+      <hr class="clearfix w-100 d-md-none mb-0">
+      <!--Second column-->
+      <div class="col-md-3 mx-auto shfooter">
+        <h5 class="my-2 font-weight-bold d-none d-md-block">Company</h5>
+        <div class="d-md-none title" data-target="#Company" data-toggle="collapse">
+          <div class="mt-3 font-weight-bold">Company
+            <div class="float-right navbar-toggler">
+              <i class="fas fa-angle-down"></i>
+              <i class="fas fa-angle-up"></i>
+            </div>
+          </div>
+        </div>
+        <ul class="list-unstyled collapse" id="Company">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <!--/.Second column-->
+      <hr class="clearfix w-100 d-md-none mb-0">
+      <!--Third column-->
+      <div class="col-md-3 mx-auto shfooter">
+        <h5 class="my-2 font-weight-bold d-none d-md-block">Resources</h5>
+        <div class="d-md-none title" data-target="#Resources" data-toggle="collapse">
+          <div class="mt-3 font-weight-bold">Resources
+            <div class="float-right navbar-toggler">
+              <i class="fas fa-angle-down"></i>
+              <i class="fas fa-angle-up"></i>
+            </div>
+          </div>
+        </div>
+        <ul class="list-unstyled collapse" id="Resources">
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">eBooks</a></li>
+          <li><a href="#">Whitepapers</a></li>
+          <li><a href="#">Guide</a></li>
+          <li><a href="#">Downloads</a></li>
+        </ul>
+      </div>
+      <!--/.Third column-->
+      <hr class="clearfix w-100 d-md-none mb-0">
+      <!--Fourth column-->
+      <div class="col-md-3 mx-auto shfooter">
+        <h5 class="my-2 font-weight-bold d-none d-md-block">Get Help</h5>
+        <div class="d-md-none title" data-target="#Get-Help" data-toggle="collapse">
+          <div class="mt-3 font-weight-bold">Get Help
+            <div class="float-right navbar-toggler">
+              <i class="fas fa-angle-down"></i>
+              <i class="fas fa-angle-up"></i>
+            </div>
+          </div>
+        </div>
+        <ul class="list-unstyled collapse" id="Get-Help">
+          <li><a href="#" target="_blank">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Login</a></li>
+        </ul>
+      </div>
+      <!--/.Fourth column-->
+    </div>
+  </div>
+  <!--/.Footer Links-->
+  <hr class="mb-0">
+  <!--Copyright-->
+  <div class="py-3 text-center">
+    Made by Pankaj Sharma
+    <script>
+      document.write(new Date().getFullYear())
+    </script> <a href="home.html">Trading Platform</a> | Made with love❤️.
+  </div>
+  <!--/.Copyright-->
+</footer>
+
+	
+	<style>
+		a {
+		  color: white;
+		}
+		.shfooter .collapse {
+		  display: inherit;
+		}
+		@media (max-width: 767px) {
+		  .shfooter ul {
+			margin-bottom: 0;
+		  }
+		 
+		  .shfooter .collapse {
+			display: none;
+		  }
+		 
+		  .shfooter .collapse.show {
+			display: block;
+		  }
+		 
+		  .shfooter .title .fa-angle-up,
+		  .shfooter .title[aria-expanded="true"] .fa-angle-down {
+			display: none;
+		  }
+		 
+		  .shfooter .title[aria-expanded="true"] .fa-angle-up {
+			display: block;
+		  }
+		 
+		  .shfooter .navbar-toggler {
+			display: inline-block;
+			padding: 0;
+		  }
+		}
+		 
+		.resize {
+		  text-align: center;
+		}
+		.resize {
+		  margin-top: 3rem;
+		  font-size: 1.25rem;
+		}
+		/*RESIZESCREEN ANIMATION*/
+		.fa-angle-double-right {
+		  animation: rightanime 1s linear infinite;
+		}
+		 
+		.fa-angle-double-left {
+		  animation: leftanime 1s linear infinite;
+		}
+		@keyframes rightanime {
+		  50% {
+			transform: translateX(10px);
+			opacity: 0.5;
+		  }
+		  100% {
+			transform: translateX(10px);
+			opacity: 0;
+		  }
+		}
+		@keyframes leftanime {
+		  50% {
+			transform: translateX(-10px);
+			opacity: 0.5;
+		  }
+		  100% {
+			transform: translateX(-10px);
+			opacity: 0;
+		  }
+		}
+		 
+		</style>
+
+
+
+
+</body>
+</html>
